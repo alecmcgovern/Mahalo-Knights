@@ -7,3 +7,38 @@
 }
 
 
+.clothing-image{
+	width: 100%;
+}
+.well, 
+.front, 
+.back {
+	height: 500px;
+}
+.well{
+	border: 1px solid black;
+	height: 500px;
+	overflow: auto;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+}
+.well-container:hover .well{
+	transform: rotateY(180deg);
+}
+
+
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+}
+
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.back {
+
+	background-color: blue;
+	transform: rotateY(180deg);
+}

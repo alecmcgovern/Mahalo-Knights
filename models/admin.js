@@ -10,7 +10,7 @@ AdminSchema.set('toJSON', {
 	transform: function(doc, ret, options){
 		var returnJson = {
 			id: ret._id,
-			email: ret.email,
+			email: ret.email
 		};
 		return returnJson;
 	}

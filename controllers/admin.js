@@ -17,7 +17,7 @@ router.route('/')
   });
 
 router.get('/:id', function(req, res) {
-  User.findById(req.params.id, function(err, admin) {
+  Admin.findById(req.params.id, function(err, admin) {
     if (err) return res.status(500).send(err);
     res.send(admin);
   });

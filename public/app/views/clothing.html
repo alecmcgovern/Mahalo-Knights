@@ -1,13 +1,26 @@
 <div>
 	<h1>All the Clothes</h1>
+	<form>
+		<input type="text" ng-model="search">
+	</form>
 	<div class="row">
-		<div class="col-md-3 col-lg-3" ng-repeat=
+		<div class="col-md-4 col-lg-4" ng-repeat=
 		"item in items track by $index">
-			<h4>{{item.name}}</h4>
-			<p>{{item.type}}</p>
-			<p>{{item.quantity}}</p>
-			<p>{{item.description}}</p>
+			<div class="well-container">
+				<div class="well">
+					<div class="front">
+						<!-- <h4>{{item.name}}</h4> -->
+						<img class="clothing-image img-responsive" ng-src="{{item.imageUrl}}">
+						<!-- <button ng-click="deleteItem(item._id, $index)" ng-show="adminLoggedIn()">Delete Item</button> -->
+					</div>
+					<div class="back">
+						<p>{{item.type}}</p>
+						<p>{{item.quantity}}</p>
+						<p>{{item.description}}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-
+	<button ng-show="adminLoggedIn()" ng-click="logout()">Logout</button>
 </div>
