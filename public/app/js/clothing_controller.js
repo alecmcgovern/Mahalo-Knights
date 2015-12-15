@@ -6,8 +6,10 @@ angular.module('ClothingCtrls', ['MKServices'])
 		'$location', 
 		function($scope, $http, Item, $location) {
 			$scope.items = [];
+			$scope.dataLoading = true;
 			Item.query(function success(data) {
 				$scope.items = data;
+				$scope.dataLoading = false;
 			}, function error(data) {
 				console.log(data);
 			});

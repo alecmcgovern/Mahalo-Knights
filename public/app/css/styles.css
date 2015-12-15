@@ -20,6 +20,11 @@ button{
 	margin: 10px;
 }
 
+/* Loading */
+.loading{
+	margin-top: 150px;
+}
+
 /* Buttons and other general styling */
 hr{
 	padding: 20px;
@@ -83,4 +88,9 @@ hr{
 .image-preview{
 	width: 200px;
 	height: 200px;
+}
+
+/* Home Page */
+#home-page{
+	height: 400px;
 }
