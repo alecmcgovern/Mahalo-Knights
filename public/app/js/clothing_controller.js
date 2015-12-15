@@ -46,6 +46,10 @@ angular.module('ClothingCtrls', ['MKServices'])
 				newItem.$save();
 				$location.path('/clothing');
 			}
+
+			$scope.uploadPhoto = function() {
+				
+			}
 		}
 	])
 	.controller('EditItemCtrl', [

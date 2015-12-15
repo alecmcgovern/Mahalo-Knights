@@ -3,7 +3,15 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
+//var cloudinary = require('cloudinary'), fs = require('fs');
 var app = express();
+
+
+  // cloudinary.config({ 
+  //    cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+  //    api_key: process.env.CLOUDINARY_API_KEY,
+  //    api_secret: process.env.CLOUDINARY_API_SECRET
+  // });
 
 var secret = 'mahaloknightssecretpassphrase';
 
