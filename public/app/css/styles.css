@@ -36,16 +36,16 @@ hr{
 	border-radius: 5%;
 }
 .item{
-	padding: 10px;
 	height: 400px;
-	transition: 0.5s;
-	transform-style: preserve-3d;
 	margin-bottom: 20px;
+	overflow: hidden;
+	margin: 20px;
 }
  
 .front, 
 .back {
-	border: 2px solid white;
+	/*padding: 20px;*/
+	border: none;
 	border-radius: 5%;
 	position: absolute;
 	top: 0;
@@ -54,14 +54,14 @@ hr{
 	height: 100%;
 }
 .front{
-	-webkit-transition: -webkit-transform 0.5s;
-        transition: transform 0.5s;
+	-webkit-transition: -webkit-transform 0.4s;
+        transition: transform 0.4s;
 } 
 .back {
 	-webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-  	-webkit-transition: -webkit-transform 0.5s;
-        transition: transform 0.5s;
+  	-webkit-transition: -webkit-transform 0.4s;
+        transition: transform 0.4s;
 }
 
 .back {
@@ -93,4 +93,9 @@ hr{
 /* Home Page */
 #home-page{
 	height: 400px;
+}
+
+/* Admin Login Page */
+#admin-login{
+	height: 600px;
 }

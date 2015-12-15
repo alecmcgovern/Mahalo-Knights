@@ -1,50 +1,45 @@
 <div>
 <div class="faux-nav"></div>
-<h1 class="text-center">Fill out the form to add a new item to the store</h1>
-	<form ng-submit="addItem()">
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="name" ng-model='item.name'>
+<h1 class="text-center">Fill out the form below to add a new item</h1>
+	<div class="row">
+		<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-md-offset-3 col-lg-6">
+			<form ng-submit="addItem()">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="name" ng-model='item.name'>
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="type" ng-model='item.type'>
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="price" ng-model='item.price'>
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="quantity" ng-model='item.quantity'>
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="description" ng-model='item.description'>
+				</div>
+
+				<!-- Image Link input :  now using upload -->
+				<!-- <div class="form-group">
+					<input type="text" class="form-control" placeholder="image link" ng-model='item.imageUrl'>
+				</div> -->
+
+				<div class="form-group">
+					<input type="submit" class="button" value="Add Item">
+				</div>
+
+				
+
+				<a ng-click="uploadPhoto()" return false>Upload Photo</a>
+
+			</form>
+			<img class="image-preview" ng-src="{{imageUploadUrl}}">
 		</div>
-
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="type" ng-model='item.type'>
-		</div>
-
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="price" ng-model='item.price'>
-		</div>
-
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="quantity" ng-model='item.quantity'>
-		</div>
-
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="description" ng-model='item.description'>
-		</div>
-
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="image link" ng-model='item.imageUrl'>
-		</div>
-
-		<div class="form-group">
-			<input type="submit" class="button" value="Add Item">
-		</div>
-
-		
-		<a href="#" id="upload_widget_opener">upload a photo</a>
-
-		<!-- <button ng-click="uploadPhoto()">Upload Photo</button> -->
-	    <script type="text/javascript">
-	       document.getElementById("upload_widget_opener").addEventListener("click", function() {
-	         cloudinary.openUploadWidget({ cloud_name: 'dbyw3rhhs', upload_preset: 'u7xi2rf8'},
-	           function(error, result) {
-	           	console.log(result);
-	             var photoLocation = $('#photo_url');
-	             photoLocation.val(result[0]["url"]);
-	           });
-	       }, false);
-	    </script>
-		<!-- <input type="file" name="pic" accept="image/*"> -->
-	</form>
-	<img class="image-preview" ng-src="{{item.imageUrl}}">
+	</div>
+	<hr>
 </div>

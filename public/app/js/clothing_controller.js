@@ -33,14 +33,17 @@ angular.module('ClothingCtrls', ['MKServices'])
 		'$location', 
 		'Item', 
 		function($scope, $location, Item) {
+			$scope.imageUploadUrl = 'hey';
+
 			$scope.addItem = function() {
+				console.log('attempting to add item');
 				var params = {
 					name: $scope.item.name,
 					type: $scope.item.type,
 					price: $scope.item.price,
 					quantity: $scope.item.quantity,
 					description: $scope.item.description,
-					imageUrl: $scope.item.imageUrl
+					imageUrl: $scope.imageUploadUrl,
 				}
 				var newItem = new Item(params);
 				newItem.$save();
@@ -48,8 +51,17 @@ angular.module('ClothingCtrls', ['MKServices'])
 			}
 
 			$scope.uploadPhoto = function() {
-				
+				cloudinary.openUploadWidget({ cloud_name: 'dbyw3rhhs', upload_preset: 'u7xi2rf8'},
+			        function(error, result) {
+			           	console.log(result);
+			           	$scope.imageUploadUrl = result[0].secure_url;
+			           	console.log("Here is the image url: " + $scope.imageUploadUrl);
+			           	$scope.$apply(function(){
+							$scope.imageUploadUrl = result[0].secure_url;
+						});
+			    });
 			}
+
 		}
 	])
 	.controller('EditItemCtrl', [
