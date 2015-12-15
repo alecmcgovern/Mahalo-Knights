@@ -1,0 +1,31 @@
+#intro { 
+    background: url(../images/sunset.jpg) 50% 0 fixed; 
+/*    background-repeat: no-repeat;*/
+    height: 700px;  
+    max-width: 100%;
+    /*margin: 0 auto; */
+    width: 100%; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+#welcome{
+    color: white;
+}
+#home { 
+    
+    background-repeat: no-repeat;
+    height: 400px;  
+    /*margin: 0 auto; */
+    width: 100%; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+#about { 
+    background: url(../images/mahalo_logo.png) 50% 0 fixed; 
+    height: 400px;
+   /* margin: 0 auto;*/ 
+    width: 100%; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    color: #fff;
+}

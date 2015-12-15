@@ -13,6 +13,8 @@
 		styles.css">
 	<link rel="stylesheet" type="text/css" href="app/css/
 		footer.css">
+	<link rel="stylesheet" type="text/css" href="app/css/
+		parallax.css">
 	<link rel="stylesheet" href="https://maxcdn.
 		bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -56,10 +58,10 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/clothing">Shop</a></li>
-				<li><a href="/"><i class="fa fa-opencart fa-lg"></i></a></li>
+				<li><a id="nav-shop" href="/clothing">Shop</a></li>
+				<li><a id="nav-cart" href="/"><i class="fa fa-opencart fa-lg"></i></a></li>
 				<li ng-show="adminLoggedIn()" class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+					<a id="nav-admin" href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="/newitem">Add Items</a></li>
 						<li><a href="#">Rad stuff</a></li>
@@ -69,9 +71,7 @@
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</nav>
-	<div class="container">
 		<ng-view></ng-view>
-	</div>
 
 	<div ng-include="'app/views/footer.html'"></div>
 </body>

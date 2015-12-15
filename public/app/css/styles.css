@@ -4,7 +4,13 @@
 }
 #logo{
 	width: 20%;
+	/*margin-top: 20px;*/
 }
+/*@media(min-width: 950px){
+	#logo{
+		width: 20%;
+	}
+}*/
 .navbar{
 	z-index: 100;
 	position: fixed;
@@ -12,6 +18,15 @@
 	border: none;
 	border-radius: 0px;
 	box-shadow: 0px 2px 5px #888888;
+}
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+#nav-shop, #nav-admin, #nav-cart{
+	color: black;
+}
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
 }
 body{
 	background: white;
@@ -33,7 +48,7 @@ hr{
 /* Clothing Display */
 .clothing-image{
 	height: 100%;
-	border-radius: 5%;
+	border-radius: 1%;
 }
 .item{
 	height: 400px;
@@ -46,7 +61,7 @@ hr{
 .back {
 	/*padding: 20px;*/
 	border: none;
-	border-radius: 5%;
+	border-radius: 1%;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -92,7 +107,7 @@ hr{
 
 /* Home Page */
 #home-page{
-	height: 400px;
+	height: 200px;
 }
 
 /* Admin Login Page */
