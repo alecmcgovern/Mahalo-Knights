@@ -3,7 +3,6 @@ angular.module('ClothingCtrls', ['MKServices'])
 		$scope.items = [];
 		Item.query(function success(data) {
 			$scope.items = data;
-			// console.log(data);
 		}, function error(data) {
 			console.log(data);
 		});
@@ -18,51 +17,75 @@ angular.module('ClothingCtrls', ['MKServices'])
 	}
 
 	}])
-	// .controller('ItemShowCtrl', ['$scope', '$routeParams', '$http', '$location', function($scope, $routeParams, $http, $location){
-	// 	$http({
-	// 		url: "/api/clothing/"+$routeParams.id,
-	// 		method: 'GET'
-	// 	}).then(function(res){
-	// 		if(res.status === 200){
-	// 			$scope.item = res.data;
-	// 		}
-	// 	}, function(res) {
-	// 		console.log("Everything went horribly awry");
-	// 		console.log(res);
-	// 	});
+	.controller('NewItemCtrl', [
+		'$scope', 
+		'$location', 
+		'Item', 
+		function($scope, $location, Item) {
+			$scope.addItem = function() {
+				var params = {
+					name: $scope.item.name,
+					type: $scope.item.type,
+					price: $scope.item.price,
+					quantity: $scope.item.quantity,
+					description: $scope.item.description,
+					imageUrl: $scope.item.imageUrl
+				}
+				var newItem = new Item(params);
+				newItem.$save();
+				$location.path('/clothing');
+			}
+		}
+	])
+	.controller('EditItemCtrl', [
+		'$scope',
+		'$http',
+		'$routeParams',
+		'$location',
+		'Item',
+		function($scope, $http, $routeParams, $location, Item) {
+			Item.get({id: $routeParams.id}, function success(data) {
+				$scope.item = data;
+				console.log(data);
+			}, function error(data) {
+				console.log(data);
+			});
 
-
-	// }])
-	.controller('NewItemCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
-		// $scope.formWarning = true;
-		// $scope.manufacturer = '';
-		// $scope.model = '';
-		// $scope.engines = 0;
-		// $scope.image = '';
-		// $scope.createPlane = function(){
-		// 	if ($scope.manufacturer && $scope.model &&
-		// 		$scope.engines && $scope.imageUrl){
+			$scope.editItem = function() {
+				$http({
+					url: "/api/clothing/"+$routeParams.id,
+					method: 'PUT',
+					data: {
+						name: $scope.item.name,
+						type: $scope.item.type,
+				 		price: $scope.item.price,
+				 		quantity: $scope.item.quantity,
+				 		description: $scope.item.description,
+				 		imageUrl: $scope.item.imageUrl
+					}
+				}).then(function(res){
+					if(res.status === 200){
+						$location.path('/clothing');
+					}
+				}, function(res) {
+					console.log("Everything went horribly awry");
+					console.log(res);
+				});
+				// var currentItem = Item.get({id: $routeParams.id}, function success(data) {
+				// 	console.log(data);
+				// 	data.name = $scope.item.name;
+				// 	data.type = $scope.item.type;
+				// 	data.price = $scope.item.price;
+				// 	data.quantity = $scope.item.quantity;
+				// 	data.description = $scope.item.description;
+				// 	data.imageUrl = $scope.item.imageUrl;
+				// 	console.log(data);
+				// 	data.$save();
+				// 	$location.path('/clothing');
+				// }, function error(data) {
+				// 	console.log(data);
+				// });
 				
-		// 		$http({
-		// 			url: "/api/airplanes",
-		// 			method: 'POST',
-		// 			data: {
-		// 				manufacturer: $scope.manufacturer,
-		// 				model: $scope.model,
-		// 				engines: parseInt($scope.engines, 10),
-		// 				imageUrl: $scope.imageUrl
-		// 			}
-		// 		}).success(function(){
-		// 			$location.path('/');
-		// 		});
-
-		// 	}else{
-		// 		// $scope.formwarning = true;
-		// 		console.log("false");
-		// 	}
-			
-		// }
-
-
-
-	}]);
+			}
+		}
+	]);

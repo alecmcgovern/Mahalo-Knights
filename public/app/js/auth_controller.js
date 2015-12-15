@@ -14,7 +14,7 @@ angular.module('AuthCtrls', ['MKServices'])
 	      	$http.post('/api/auth', $scope.admin).then(function(res) {
 	      		console.log(res);
 	        	Auth.saveToken(res.data.token);
-	        	$location.path('/');
+	        	$location.path('/clothing');
 	      	}, function(res) {
 	        	console.log(res.data);
 	      	});

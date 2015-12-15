@@ -12,14 +12,18 @@ app.config([
 	  	templateUrl: 'app/views/clothing.html',
 	    controller: "ClothingCtrl"
 	  })
+	  .when('/clothing/:id/edit', {
+	  	templateUrl: 'app/views/edit_item.html',
+	    controller: "EditItemCtrl"
+	  })
 	  .when('/login', {
 	    templateUrl: 'app/views/login.html',
 	    controller: "LoginCtrl"
 	  })
-	  // .when('/:id', {
-	  //   templateUrl: 'app/views/airplane.html',
-	  //   controller: "ClothingCtrl"
-	  // })
+	  .when('/newitem', {
+	    templateUrl: 'app/views/new_item.html',
+	    controller: "NewItemCtrl"
+	  })
 	  .otherwise({
 	    templateUrl: 'app/views/error.html',
 	    controller: "HomeCtrl"

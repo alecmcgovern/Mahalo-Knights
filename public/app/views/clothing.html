@@ -6,21 +6,22 @@
 	<div class="row">
 		<div class="col-md-4 col-lg-4" ng-repeat=
 		"item in items track by $index">
-			<div class="well-container">
-				<div class="well">
-					<div class="front">
-						<!-- <h4>{{item.name}}</h4> -->
-						<img class="clothing-image img-responsive" ng-src="{{item.imageUrl}}">
-						<!-- <button ng-click="deleteItem(item._id, $index)" ng-show="adminLoggedIn()">Delete Item</button> -->
-					</div>
-					<div class="back">
-						<p>{{item.type}}</p>
-						<p>{{item.quantity}}</p>
-						<p>{{item.description}}</p>
-					</div>
+			<div class="item effect-flip">
+				<div class="front">
+					<img class="clothing-image img-responsive" ng-src="{{item.imageUrl}}">
+					
 				</div>
+				<div class="back">
+					<h4 class="text-center">{{item.name}}</h4>
+					<p class="text-center">{{item.type}}</p>
+					<p class="text-center">{{item.price}}</p>
+					<p class="text-center">{{item.quantity}}</p>
+					<p class="text-center"><strong>Description:</strong> {{item.description}}</p>
+					<button class="btn btn-danger center-block" ng-click="deleteItem(item._id, $index)" ng-show="adminLoggedIn()">Delete Item</button>
+					<a ng-href="/clothing/{{item._id}}/edit" ng-show="adminLoggedIn()">Edit Item</a>
+				</div>
+				
 			</div>
 		</div>
 	</div>
-	<button ng-show="adminLoggedIn()" ng-click="logout()">Logout</button>
 </div>
