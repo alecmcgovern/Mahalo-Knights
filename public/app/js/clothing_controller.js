@@ -1,20 +1,29 @@
 angular.module('ClothingCtrls', ['MKServices'])
-	.controller('ClothingCtrl', ['$scope', '$http', 'Item', function($scope, $http, Item) {
-		$scope.items = [];
-		Item.query(function success(data) {
-			$scope.items = data;
-		}, function error(data) {
-			console.log(data);
-		});
-
-
-		$scope.deleteItem = function(id, index) {
-			Item.delete({id: id}, function success(data) {
-				$scope.items.splice(index, 1);
+	.controller('ClothingCtrl', [
+		'$scope', 
+		'$http', 
+		'Item', 
+		'$location', 
+		function($scope, $http, Item, $location) {
+			$scope.items = [];
+			Item.query(function success(data) {
+				$scope.items = data;
 			}, function error(data) {
 				console.log(data);
-		});
-	}
+			});
+
+
+			$scope.deleteItem = function(id, index) {
+				Item.delete({id: id}, function success(data) {
+					$scope.items.splice(index, 1);
+				}, function error(data) {
+					console.log(data);
+				});
+			}
+
+			$scope.editItem = function(id) {
+				$location.path('/clothing/'+id+'/edit');
+			}
 
 	}])
 	.controller('NewItemCtrl', [
@@ -46,7 +55,6 @@ angular.module('ClothingCtrls', ['MKServices'])
 		function($scope, $http, $routeParams, $location, Item) {
 			Item.get({id: $routeParams.id}, function success(data) {
 				$scope.item = data;
-				console.log(data);
 			}, function error(data) {
 				console.log(data);
 			});
@@ -71,21 +79,6 @@ angular.module('ClothingCtrls', ['MKServices'])
 					console.log("Everything went horribly awry");
 					console.log(res);
 				});
-				// var currentItem = Item.get({id: $routeParams.id}, function success(data) {
-				// 	console.log(data);
-				// 	data.name = $scope.item.name;
-				// 	data.type = $scope.item.type;
-				// 	data.price = $scope.item.price;
-				// 	data.quantity = $scope.item.quantity;
-				// 	data.description = $scope.item.description;
-				// 	data.imageUrl = $scope.item.imageUrl;
-				// 	console.log(data);
-				// 	data.$save();
-				// 	$location.path('/clothing');
-				// }, function error(data) {
-				// 	console.log(data);
-				// });
-				
 			}
 		}
 	]);
