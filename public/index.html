@@ -4,9 +4,17 @@
 	<base href="/">
 	<title>Mahalo Knights</title>
 	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" media="screen" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="app/css/styles.css">
+	<link rel="stylesheet" media="screen" href="http://
+		netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.
+		min.css">
+	<link rel="stylesheet" type="text/css" href="app/css/
+		styles.css">
+	<link rel="stylesheet" type="text/css" href="app/css/
+		footer.css">
+	<link rel="stylesheet" href="https://maxcdn.
+		bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  	<script type="text/javascript" src="https://raw.githubusercontent.com/cloudinary/cloudinary_angular/master/js/angular.cloudinary.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular.js"></script>
@@ -50,7 +58,9 @@
 		</div><!-- /.navbar-collapse -->
 	</nav>
 	<div class="container">
-	<ng-view></ng-view>
+		<ng-view></ng-view>
 	</div>
+
+	<div ng-include="'app/views/footer.html'"></div>
 </body>
 </html>
