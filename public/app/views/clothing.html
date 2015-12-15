@@ -11,7 +11,7 @@
 	<!-- Item Display -->
 	<div class="row">
 		<div class="col-md-4 col-lg-4" ng-repeat=
-		"item in items track by $index">
+		"item in items | filter:search track by $index">
 			<div class="item effect-flip">
 				<div class="front">
 					<img class="clothing-image img-responsive" ng-src="{{item.imageUrl}}">
@@ -22,7 +22,7 @@
 					<p class="text-center">{{item.type}}</p>
 					<p class="text-center">${{item.price}}</p>
 					<p class="text-center"><strong>Description:</strong> {{item.description}}</p>
-
+					<button class="center-block">Purchase</button>
 					<div ng-show="adminLoggedIn()">
 						<hr>
 						<h6 class="text-center">Admin:</h6>
