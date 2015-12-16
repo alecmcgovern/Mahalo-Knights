@@ -82,10 +82,12 @@
 	<div class="center-block">
 		<button ng-disabled="currentPage == 1" ng-click="currentPage=currentPage-1" class="pagination"><<</button>
 		<p class="pagination">
-			<a href="" ng-show="currentPage > 1" class="pagination">{{currentPage-1}}</a>
-			<a href="" class="pagination middle">{{currentPage}}</a>
-			<a href="" class="pagination">{{currentPage+1}}</a>
-		</p class="pagination">
+			<code ng-show="currentPage > 1" class="pagination">{{currentPage-1}}</code>
+			<code class="pagination middle">{{currentPage}}</code>
+			<code ng-hide="numberOfPages() < currentPage+2" class="pagination">{{currentPage+1}}</code>
+			<code ng-show="numberOfPages() < currentPage+2" class="pagination">*</code>
+			<code ng-hide="currentPage > 1" class="pagination">{{currentPage+2}}</code>
+		</p>
 		<button ng-disabled="currentPage >= items.length/pageSize - 1" ng-click="currentPage=currentPage+1" class="pagination">>></button>
 	</div>
 	<hr>

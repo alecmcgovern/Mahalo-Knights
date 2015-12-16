@@ -51,12 +51,12 @@ angular.module('ClothingCtrls', ['MKServices'])
 			}
 
 
-			
+			// Pagination
 			$scope.currentPage = 1;
     		$scope.pageSize = 3;
-			// $scope.numberOfPages=function(){
-			//     return Math.ceil($scope.data.length/$scope.pageSize);                
-			// }
+			$scope.numberOfPages=function(){
+		        return Math.ceil($scope.items.length/$scope.pageSize);                
+		    }
 			
 			app.filter('startFrom', function() {
 			    return function(input, start) {
