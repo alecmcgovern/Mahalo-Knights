@@ -6,16 +6,18 @@ angular.module('AuthCtrls', ['MKServices'])
   		'Auth',
 		function($scope, $http, $location, Auth) {
 			$scope.admin = {
-     		email: '',
-   			password: ''
-    	};
-	   // $scope.actionName = 'Login';
+	     		email: '',
+	   			password: ''
+    		};
+
 	    $scope.userAction = function() {
 	      	$http.post('/api/auth', $scope.admin).then(function(res) {
-	      		console.log(res);
-	        	if (res.data.token) Auth.saveToken(res.data.token);
-	        	// $scope.currentAdmin = res.data.
-	        	$location.path('/clothing');
+	        	if (res.data.token) {
+	        		Auth.saveToken(res.data.token, res.data.admin);
+	        		$location.path('/clothing');
+	        	}else{
+	        		$location.path('/login');
+	        	}
 	      	}, function(res) {
 	        	console.log(res.data);
 	      	});

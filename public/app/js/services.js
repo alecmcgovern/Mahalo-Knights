@@ -4,14 +4,16 @@ angular.module('MKServices', ['ngResource'])
 }])
 .factory('Auth', ['$window', function($window) {
 	return {
-		saveToken: function(token) {
+		saveToken: function(token, admin) {
 			$window.localStorage['admin-token'] = token;
+			$window.localStorage["admin.email"] = admin.email;
 		},
 		getToken: function() {
 			return $window.localStorage['admin-token'];
 		},
 		removeToken: function() {
 			$window.localStorage.removeItem('admin-token');
+			$window.localStorage.removeItem["admin.email"];
 		},
 		adminLoggedIn: function() {
 			var token = this.getToken();

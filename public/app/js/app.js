@@ -1,4 +1,4 @@
-var app = angular.module('MahaloKnightsApp', ['MKServices', 'ngRoute', 'ngAnimate', 'ClothingCtrls', 'HomeCtrls', 'AuthCtrls', 'CartCtrls']);
+var app = angular.module('MahaloKnightsApp', ['MKServices', 'ngRoute', 'ngAnimate', 'ClothingCtrls', 'HomeCtrls', 'AuthCtrls', 'CartCtrls', 'NavCtrls']);
 
 app.config([
 	'$routeProvider', 
@@ -56,5 +56,7 @@ app.config([
 
 	$rootScope.adminLoggedIn = function() {
     	return Auth.adminLoggedIn.apply(Auth);
-  	}
+  	};
+
+
 }]);

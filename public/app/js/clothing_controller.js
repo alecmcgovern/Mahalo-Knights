@@ -19,6 +19,8 @@ angular.module('ClothingCtrls', ['MKServices'])
 			$scope.deleteItem = function(id, index) {
 				Item.delete({id: id}, function success(data) {
 					$scope.items.splice(index, 1);
+					// $location.path('/clothing');
+					// $("")
 				}, function error(data) {
 					console.log(data);
 				});
@@ -51,19 +53,22 @@ angular.module('ClothingCtrls', ['MKServices'])
 			}
 
 
-			// Pagination
-			$scope.currentPage = 1;
-    		$scope.pageSize = 3;
-			$scope.numberOfPages=function(){
-		        return Math.ceil($scope.items.length/$scope.pageSize);                
-		    }
+			//Pagination
+			// $scope.currentPage = 1;
+   //  		$scope.pageSize = 3;
+			// $scope.numberOfPages=function(){
+		 //        return Math.ceil($scope.items.length/$scope.pageSize);                
+		 //    }
 			
-			app.filter('startFrom', function() {
-			    return function(input, start) {
-			        start = +start; //parse to int
-			        return input.slice(start);
-			    }
-			});
+			// $scope.startPageOn = function() {
+				
+			// }
+			// app.filter('startFrom', function() {
+			//     return function(input, start) {
+			//         start = +start; //parse to int
+			//         return input.slice(start);
+			//     }
+			// });
 
 	}])
 	.controller('NewItemCtrl', [

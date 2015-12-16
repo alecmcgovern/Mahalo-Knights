@@ -53,7 +53,6 @@ app.post('/api/auth', function(req, res) {
     if (err || !admin) return res.send({message: 'Admin not found'});
     admin.authenticated(req.body.password, function(err, result) {
       if (err || !result) return res.send({message: 'Admin not authenticated'});
-      console.log('testing');
       var token = jwt.sign(admin, secret);
       res.send({admin: admin, token: token});
     });
