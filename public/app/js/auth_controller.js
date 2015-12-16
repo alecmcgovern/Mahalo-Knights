@@ -40,16 +40,7 @@ angular.module('AuthCtrls', ['MKServices'])
 
 	    $scope.userAction = function() {
 	      $http.post('/api/admin', $scope.admin).then(function (res) {
-	        $http.post('/api/auth', $scope.admin).then(function (res) {
-	          	if (res.data.token) {
-	        		Auth.saveToken(res.data.token, res.data.admin);
-	        		$location.path('/clothing');
-	        	}else{
-	        		$location.path('/login');
-	        	}
-	        }, function (res) {
-	            console.log(res.data);
-	        });
+	      		$location.path('/');
 	      }, function (res) {
 	          console.log(res.data);
 	      });
