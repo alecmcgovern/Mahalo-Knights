@@ -40,7 +40,7 @@ app.use('/api/admin', expressJWT({secret: secret})
 
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
-    res.status(401).send({message: 'You need an authorization token to view this information.'})
+    res.status(401).send({message: 'You need an authorization token to view this information.'});
   }
 });
 
@@ -53,7 +53,7 @@ app.post('/api/auth', function(req, res) {
     if (err || !admin) return res.send({message: 'Admin not found'});
     admin.authenticated(req.body.password, function(err, result) {
       if (err || !result) return res.send({message: 'Admin not authenticated'});
-
+      console.log('testing');
       var token = jwt.sign(admin, secret);
       res.send({admin: admin, token: token});
     });

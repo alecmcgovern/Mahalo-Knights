@@ -1,34 +1,40 @@
 <div class="container">
-<div class="faux-nav"></div>
-<h1 class="text-center">Edit item: {{item.name}}</h1>
-	<form ng-submit="editItem()">
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="name" ng-model='item.name'>
-		</div>
+	<div class="faux-nav"></div>
 
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="type" ng-model='item.type'>
-		</div>
+	<h4 class="text-center" ng-hide="adminLoggedIn()">You are not authorized to view this page</h4>
 
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="price" ng-model='item.price'>
-		</div>
+	<div ng-show="adminLoggedIn()">
+	<h1 class="text-center">Edit item: {{item.name}}</h1>
+		<form ng-submit="editItem()">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="name" ng-model='item.name'>
+			</div>
 
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="quantity" ng-model='item.quantity'>
-		</div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="type" ng-model='item.type'>
+			</div>
 
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="description" ng-model='item.description'>
-		</div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="price" ng-model='item.price'>
+			</div>
 
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="image link" ng-model='item.imageUrl'>
-		</div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="quantity" ng-model='item.quantity'>
+			</div>
 
-		<div class="form-group">
-			<input type="submit" class="button" value="Save Changes">
-		</div>
-	</form>
-	<img class="image-preview" ng-src="{{item.imageUrl}}">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="description" ng-model='item.description'>
+			</div>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="image link" ng-model='item.imageUrl'>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" class="button" value="Save Changes">
+			</div>
+		</form>
+		<img class="image-preview" ng-src="{{item.imageUrl}}">
+
+	</div>
 </div>

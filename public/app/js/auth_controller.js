@@ -13,10 +13,15 @@ angular.module('AuthCtrls', ['MKServices'])
 	    $scope.userAction = function() {
 	      	$http.post('/api/auth', $scope.admin).then(function(res) {
 	      		console.log(res);
-	        	Auth.saveToken(res.data.token);
+	        	if (res.data.token) Auth.saveToken(res.data.token);
+	        	// $scope.currentAdmin = res.data.
 	        	$location.path('/clothing');
 	      	}, function(res) {
 	        	console.log(res.data);
 	      	});
+	    };
+
+	    $scope.getAdmin = function() {
+
 	    };
 	}]);

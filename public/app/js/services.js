@@ -15,7 +15,7 @@ angular.module('MKServices', ['ngResource'])
 		},
 		adminLoggedIn: function() {
 			var token = this.getToken();
-			return token ? true : false
+			return token ? true : false;
 		}
 	};
 }])

@@ -1,5 +1,8 @@
 angular.module('HomeCtrls', [])
-	.controller('HomeCtrl', ['$scope', function($scope) {
+	.controller('HomeCtrl', ['$scope', '$location', function($scope, $location) {
+
+
+		// Boostrap Parallax
 		$(document).ready(function(){
 		   // cache the window object
 		   $window = $(window);
@@ -21,4 +24,9 @@ angular.module('HomeCtrls', [])
 		      }); // end window scroll
 		   });  // end section function
 		}); // close out script
+
+
+		$scope.toStore = function(){
+			$location.path('/clothing');
+		}
 	}]);
