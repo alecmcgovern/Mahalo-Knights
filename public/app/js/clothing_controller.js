@@ -47,8 +47,23 @@ angular.module('ClothingCtrls', ['MKServices'])
 					});
 				}, function error(data) {
 					console.log(data);
-				})
+				});
 			}
+
+
+			
+			$scope.currentPage = 1;
+    		$scope.pageSize = 3;
+			// $scope.numberOfPages=function(){
+			//     return Math.ceil($scope.data.length/$scope.pageSize);                
+			// }
+			
+			app.filter('startFrom', function() {
+			    return function(input, start) {
+			        start = +start; //parse to int
+			        return input.slice(start);
+			    }
+			});
 
 	}])
 	.controller('NewItemCtrl', [
@@ -66,7 +81,7 @@ angular.module('ClothingCtrls', ['MKServices'])
 					price: $scope.item.price,
 					quantity: $scope.item.quantity,
 					description: $scope.item.description,
-					imageUrl: $scope.imageUploadUrl,
+					imageUrl: $scope.imageUploadUrl
 				}
 				var newItem = new Item(params);
 				newItem.$save();
@@ -81,7 +96,6 @@ angular.module('ClothingCtrls', ['MKServices'])
 						});
 			    });
 			}
-
 		}
 	])
 	.controller('EditItemCtrl', [

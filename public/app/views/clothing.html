@@ -43,8 +43,9 @@
 
 	<!-- Item Display -->
 	<div class="row">
+	<!-- "item in items | filter:search | startFrom:currentPage*pageSize | limitTo:pageSize track by $index" -->
 		<div class="col-md-4 col-lg-4" ng-repeat=
-		"item in items | filter:search track by $index">
+		"item in items | filter:startFrom | limitTo:pageSize:currentPage*pageSize  track by $index">
 			<div class="item effect-flip col-md-12 col-lg-12">
 				<div class="front">
 					<img ng-show="{{item.quantity > 0}}" class="clothing-image img-responsive" ng-src="{{item.imageUrl}}">
@@ -78,7 +79,15 @@
 		</div>
 	</div>
 
-
+	<div class="center-block">
+		<button ng-disabled="currentPage == 1" ng-click="currentPage=currentPage-1" class="pagination"><<</button>
+		<p class="pagination">
+			<a href="" ng-show="currentPage > 1" class="pagination">{{currentPage-1}}</a>
+			<a href="" class="pagination middle">{{currentPage}}</a>
+			<a href="" class="pagination">{{currentPage+1}}</a>
+		</p class="pagination">
+		<button ng-disabled="currentPage >= items.length/pageSize - 1" ng-click="currentPage=currentPage+1" class="pagination">>></button>
+	</div>
 	<hr>
 
 </div>
