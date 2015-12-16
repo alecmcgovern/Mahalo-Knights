@@ -19,8 +19,6 @@ angular.module('ClothingCtrls', ['MKServices'])
 			$scope.deleteItem = function(id, index) {
 				Item.delete({id: id}, function success(data) {
 					$scope.items.splice(index, 1);
-					// $location.path('/clothing');
-					// $("")
 				}, function error(data) {
 					console.log(data);
 				});
@@ -61,7 +59,7 @@ angular.module('ClothingCtrls', ['MKServices'])
 		 //    }
 			
 			// $scope.startPageOn = function() {
-				
+
 			// }
 			// app.filter('startFrom', function() {
 			//     return function(input, start) {
