@@ -18,7 +18,7 @@ var secret = 'mahaloknightssecretpassphrase';
 var mongoose = require('mongoose');
 var Admin = require('./models/admin');
 var Clothing = require('./models/clothing');
-mongoose.connect('mongodb://localhost/mahalo-knights');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/mahalo-knights');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
