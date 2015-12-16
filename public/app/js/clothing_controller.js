@@ -8,7 +8,7 @@ angular.module('ClothingCtrls', ['MKServices'])
 		function($scope, $http, Item, $location, $routeParams) {
 			$scope.items = [];
 			$scope.dataLoading = true;
-			
+
 			Item.query(function success(data) {
 				$scope.items = data;
 				$scope.dataLoading = false;
@@ -40,7 +40,11 @@ angular.module('ClothingCtrls', ['MKServices'])
 						}
 					}).then(function(res){
 						if(res.status === 200){
-							console.log(res.config.data.quantity);
+							// $scope.$watch(function(){
+							// 	$scope.item.quantity=res.config.data.quantity;			
+							// });
+							// console.log(res.config.data.quantity);
+							$location.path('/cart');
 						}
 					}, function(res) {
 						console.log("Everything went horribly awry");
