@@ -4,7 +4,8 @@ angular.module('ClothingCtrls', ['MKServices'])
 		'$http', 
 		'Item', 
 		'$location', 
-		function($scope, $http, Item, $location) {
+		'$routeParams',
+		function($scope, $http, Item, $location, $routeParams) {
 			$scope.items = [];
 			$scope.dataLoading = true;
 			Item.query(function success(data) {
@@ -25,6 +26,28 @@ angular.module('ClothingCtrls', ['MKServices'])
 
 			$scope.editItem = function(id) {
 				$location.path('/clothing/'+id+'/edit');
+			}
+
+			$scope.addToCart = function(id) {
+				Item.get({id: id}, function success(data) {
+					$scope.item = data;
+					$http({
+						url: "/api/clothing/"+id,
+						method: 'PUT',
+						data: {
+					 		quantity: $scope.item.quantity -1
+						}
+					}).then(function(res){
+						if(res.status === 200){
+							console.log(res.config.data.quantity);
+						}
+					}, function(res) {
+						console.log("Everything went horribly awry");
+						console.log(res);
+					});
+				}, function error(data) {
+					console.log(data);
+				})
 			}
 
 	}])
@@ -53,9 +76,6 @@ angular.module('ClothingCtrls', ['MKServices'])
 			$scope.uploadPhoto = function() {
 				cloudinary.openUploadWidget({ cloud_name: 'dbyw3rhhs', upload_preset: 'u7xi2rf8'},
 			        function(error, result) {
-			           	console.log(result);
-			           	$scope.imageUploadUrl = result[0].secure_url;
-			           	console.log("Here is the image url: " + $scope.imageUploadUrl);
 			           	$scope.$apply(function(){
 							$scope.imageUploadUrl = result[0].secure_url;
 						});

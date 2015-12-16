@@ -2,10 +2,10 @@
 	<div class="faux-nav"></div>
 	<h1 class="text-center">All the Clothes</h1>
 	<div class="row">
-		<div class="col-md-3 col-lg-3">
+		<div class="col-md-4 col-lg-4">
 			
 		</div>
-		<div class="col-md-6 col-lg-6">
+		<div class="col-md-4 col-lg-4">
 			<form id="searchform">
 				<div class="form-group">
 					<input class="form-control" type="text" ng-model="search" placeholder="filter search">
@@ -20,9 +20,20 @@
 				<option value="dress">Dress Options</option>
 			</select> -->
 		</div>
-		<div class="col-md-3 col-lg-3">
+		<div class="col-md-4 col-lg-4">
 			
 		</div>
+		<form action="" method="POST">
+	  <script
+	    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+	    data-amount="2000"
+	    data-name="Demo Site"
+	    data-description="2 widgets ($20.00)"
+	    data-image=""
+	    data-locale="auto">
+	  </script>
+	</form>
 	</div>
 		<hr>
 
@@ -36,18 +47,23 @@
 		"item in items | filter:search track by $index">
 			<div class="item effect-flip col-md-12 col-lg-12">
 				<div class="front">
-					<img class="clothing-image img-responsive" ng-src="{{item.imageUrl}}">
+					<img ng-show="{{item.quantity > 0}}" class="clothing-image img-responsive" ng-src="{{item.imageUrl}}">
+					<div class="out-of-stock" ng-hide="{{item.quantity > 0}}"></div>
 					
 				</div>
 				<div class="back">
-					<h4 class="text-center">{{item.name}}</h4>
-					<p class="text-center">{{item.type}}</p>
-					<p class="text-center">${{item.price}}</p>
-					<p class="text-center"><strong>
-						Description:</strong> {{item.description}}</p>
-					<button class="btn btn-success center-block">Add to Cart 
-						<i class="fa fa-opencart fa-lg"></i>
-						</button>
+					
+						<h4 class="text-center">{{item.name}}</h4>
+						<p class="text-center">{{item.type}}</p>
+						<p class="text-center">${{item.price}}</p>		
+						<p class="text-center"><strong>
+							Description:</strong> {{item.description}}</p>
+						<button class="btn btn-success center-block" ng-click="addToCart(item._id)">Add to Cart 
+							<i class="fa fa-opencart fa-lg"></i>
+							</button>
+					
+
+					<!-- Admin only -->
 					<div ng-show="adminLoggedIn()">
 						<hr>
 						<h6 class="text-center">Admin Only:</h6>

@@ -1,6 +1,6 @@
 /* Navbar */
 .faux-nav{
-	height: 200px;
+	height: 100px;
 }
 #logo{
 	width: 20%;
@@ -56,9 +56,12 @@ hr{
 	overflow: hidden;
 	margin: 20px;
 }
- 
+ .out-of-stock{
+ 	background: red;
+ }
 .front, 
-.back {
+.back,
+.out-of-stock {
 	/*padding: 20px;*/
 	border: none;
 	border-radius: 1%;

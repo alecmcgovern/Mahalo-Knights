@@ -39,6 +39,7 @@
   	<script src="app/js/clothing_controller.js"></script>
   	<script src="app/js/home_controller.js"></script>
   	<script src="app/js/auth_controller.js"></script>
+  	<script src="app/js/cart_controller.js"></script>
   	<script src="app/js/services.js"></script>
 </head>
 <body>
@@ -58,8 +59,8 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a id="nav-shop" href="/clothing">Shop</a></li>
-				<li><a id="nav-cart" href="/"><i class="fa fa-opencart fa-lg"></i></a></li>
+				<li><a id="nav-shop" href="/clothing">Store</a></li>
+				<li><a id="nav-cart" href="/cart"><i class="fa fa-opencart fa-lg"></i></a></li>
 				<li ng-show="adminLoggedIn()" class="dropdown">
 					<a id="nav-admin" href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
 					<ul class="dropdown-menu">

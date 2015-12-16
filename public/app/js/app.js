@@ -1,4 +1,4 @@
-var app = angular.module('MahaloKnightsApp', ['MKServices', 'ngRoute', 'ngAnimate', 'ClothingCtrls', 'HomeCtrls', 'AuthCtrls']);
+var app = angular.module('MahaloKnightsApp', ['MKServices', 'ngRoute', 'ngAnimate', 'ClothingCtrls', 'HomeCtrls', 'AuthCtrls', 'CartCtrls']);
 
 app.config([
 	'$routeProvider', 
@@ -6,6 +6,14 @@ app.config([
 	function($routeProvider, $locationProvider) {
 	  $routeProvider.when('/', {
 	    templateUrl: 'app/views/home.html',
+	    controller: "HomeCtrl"
+	  })
+	  .when('/about', {
+	  	templateUrl: 'app/views/about.html',
+	    controller: "HomeCtrl"
+	  })
+	  .when('/contact', {
+	  	templateUrl: 'app/views/contact.html',
 	    controller: "HomeCtrl"
 	  })
 	  .when('/clothing', {
@@ -24,15 +32,15 @@ app.config([
 	    templateUrl: 'app/views/new_item.html',
 	    controller: "NewItemCtrl"
 	  })
+	  .when('/cart', {
+	    templateUrl: 'app/views/cart.html',
+	    controller: "CartCtrl"
+	  })
 	  .otherwise({
 	    templateUrl: 'app/views/error.html',
 	    controller: "HomeCtrl"
 	});
 
-	// $.cloudinary.config({ 
-	//   	cloud_name: 'CLOUDINARY_CLOUD_NAME', 
-	//   	api_key: 'CLOUDINARY_API_KEY'
-	// });
 
   $locationProvider.html5Mode(true);
 }])
