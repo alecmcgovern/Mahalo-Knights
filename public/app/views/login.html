@@ -1,5 +1,7 @@
 <div class="container">
-	<div id="admin-login">
+
+	<!-- Login form only shows when no admin logged in yet -->
+	<div id="admin-login" ng-hide="adminLoggedIn()">
 		<div class="faux-nav"></div>
 		<div class="faux-nav"></div>
 		<div class="row">
@@ -20,5 +22,13 @@
 				</form>
 			</div>
 		</div>
+	</div>
+
+	<div id="admin-login-error">
+		<div class="faux-nav"></div>
+		<div class="faux-nav"></div>
+		
+		<h1>Already logged in as an admin</h1>
+		<button ng-click="logout()">Logout</button>
 	</div>
 </div>

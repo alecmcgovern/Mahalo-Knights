@@ -36,6 +36,10 @@ app.config([
 	    templateUrl: 'app/views/cart.html',
 	    controller: "CartCtrl"
 	  })
+	  .when('/newadmin', {
+	    templateUrl: 'app/views/create_admin.html',
+	    controller: "SignupCtrl"
+	  })
 	  .otherwise({
 	    templateUrl: 'app/views/error.html',
 	    controller: "HomeCtrl"
