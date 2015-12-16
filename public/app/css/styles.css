@@ -21,15 +21,29 @@ hr{
 
 /* Clothing Display */
 .clothing-image{
-	height: 100%;
 	border-radius: 1%;
 }
 .item{
-	height: 400px;
-	margin-bottom: 20px;
+	height: 100px;
 	overflow: hidden;
 	margin: 20px;
 }
+@media(min-width: 500px){
+	.item{
+		height: 200px;
+	}
+}
+@media(min-width: 700px){
+	.item{
+		height: 300px;
+	}
+}
+@media(min-width: 992px){
+	.item{
+		height: 400px;
+	}
+}
+
  .out-of-stock{
  	background: red;
  }
