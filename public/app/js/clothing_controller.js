@@ -40,11 +40,15 @@ angular.module('ClothingCtrls', ['MKServices'])
 						}
 					}).then(function(res){
 						if(res.status === 200){
-							// $scope.$watch(function(){
-							// 	$scope.item.quantity=res.config.data.quantity;			
-							// });
-							// console.log(res.config.data.quantity);
-							$location.path('/cart');
+							if(window.localStorage['cart-items']===""){
+								$scope.temp = [];
+								$scope.temp.push($scope.item);
+							}else{
+								$scope.temp = JSON.parse(window.localStorage['cart-items']);
+								$scope.temp.push($scope.item);
+							}
+							window.localStorage['cart-items'] = JSON.stringify($scope.temp);
+							$location.path('/cart');	
 						}
 					}, function(res) {
 						console.log("Everything went horribly awry");

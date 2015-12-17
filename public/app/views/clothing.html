@@ -1,7 +1,6 @@
 <div id="clothing-background">
 <div class="container">
 	<div class="faux-nav"></div>
-	<div class="faux-nav"></div>
 	<h1 class="text-center">All the Clothes</h1>
 	<div class="row">
 		<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
@@ -19,22 +18,11 @@
 				<option value="dress">Dress Options</option>
 			</select> -->
 		</div>
-		<form action="" method="POST">
-	  <script
-	    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-	    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-	    data-amount="2000"
-	    data-name="Demo Site"
-	    data-description="2 widgets ($20.00)"
-	    data-image=""
-	    data-locale="auto">
-	  </script>
-	</form>
-
+	</div>
+	<hr>
 	<div class="loading center-block" ng-if="dataLoading">
 		<h4 class="text-center">Loading...</h4>
 	</div>
-
 	<!-- Item Display -->
 	<div class="row">
 	<!-- "item in items | filter:search | startFrom:currentPage*pageSize | limitTo:pageSize track by $index" -->

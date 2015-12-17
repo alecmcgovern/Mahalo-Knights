@@ -12,7 +12,7 @@ angular.module('MKServices', ['ngResource'])
 			return $window.localStorage['admin-token'];
 		},
 		removeToken: function() {
-			$window.localStorage.removeItem('admin-token');
+			$window.localStorage.removeItem['admin-token'];
 			$window.localStorage.removeItem["admin.email"];
 		},
 		adminLoggedIn: function() {

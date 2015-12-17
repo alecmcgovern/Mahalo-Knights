@@ -3,15 +3,8 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
-//var cloudinary = require('cloudinary'), fs = require('fs');
 var app = express();
 
-
-  // cloudinary.config({ 
-  //    cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
-  //    api_key: process.env.CLOUDINARY_API_KEY,
-  //    api_secret: process.env.CLOUDINARY_API_SECRET
-  // });
 
 var secret = 'mahaloknightssecretpassphrase';
 
@@ -24,18 +17,34 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-
 app.use(
 	'/api/clothing', 
 	expressJWT({secret: secret}).unless(
 		{
 			path: ['/api/clothing'],
-			method: "GET"
+			method: ["GET", "PUT"]
 		}
 	)
 );
-app.use('/api/admin', expressJWT({secret: secret})
-	.unless({path: ['/api/admin'], method: 'POST'}));
+
+// app.use(
+//   '/api/clothing/:id', 
+//   expressJWT({secret: secret}).unless(
+//     function(req) {
+//       console.log(req.method);
+//       return true;
+//     }
+//   )
+// );
+
+app.use('/api/admin', 
+  expressJWT({secret: secret}).unless(
+    {
+      path: ['/api/admin'], 
+      method: 'POST'
+    }
+  )
+);
 
 
 app.use(function (err, req, res, next) {
@@ -62,11 +71,5 @@ app.post('/api/auth', function(req, res) {
 app.get('/*', function(req, res){
 	res.sendFile(path.join(__dirname, "public/index.html"));
 });
-
-
-
-
-
-
 
 app.listen(process.env.PORT || 3000);

@@ -1,7 +1,19 @@
 <div class="container">
 	<div class="faux-nav"></div>
-	<div class="faux-nav"></div>
-	Here is what's in your cart:
+	<div id="cart">
+		<h2 class="center-block">Here is what's in your cart: </h2>
+		<button ng-click="clearAll()" class="btn btn-danger">Clear Cart</button>
+		<div class="well" ng-repeat="item in items track by $index">
+			<img class="image-preview" src="{{item.imageUrl}}">
+			<p>{{item.name}}</p>
+			<p>{{item.type}}</p>
+			<p>${{item.price}}</p>
+			<p>Description: {{item.description}}</p>
+			<p>index: {{$index}}</p>
+			<button ng-click="removeFromCart($index)" class="btn btn-danger">Remove item</button>
+		</div>
+	</div>
+
 	<img src="http://31.media.tumblr.com/tumblr_lpsv0nM6cw1qda2s4o1_500.gif">
 
 	<div class="faux-nav"></div>
