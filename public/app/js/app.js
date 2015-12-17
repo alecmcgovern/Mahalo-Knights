@@ -55,7 +55,6 @@ app.config([
 
 	$rootScope.logout = function() {
     	Auth.removeToken();
-    	$window.localStorage['cart-items'] = "";
 	    $route.reload();
  	};
 

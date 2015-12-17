@@ -4,6 +4,7 @@
 
 body{
 	background: white;
+	font-family: 'Finger Paint', sans-serif;
 }
 button{
 	margin: 10px;
@@ -26,7 +27,6 @@ button{
 /* Clothing Display */
 #clothing-background{
 	background: white;
-	/*background-image: url("https://image.freepik.com/free-vector/abstract-geometric-shapes-background_23-2147489803.jpg");*/
 	background-size: 100%;
 }
 .clothing-image{

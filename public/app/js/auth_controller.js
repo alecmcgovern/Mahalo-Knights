@@ -11,7 +11,6 @@ angular.module('AuthCtrls', ['MKServices'])
     		};
 
 	    $scope.userAction = function() {
-	    	$window.localStorage['cart-items'] = "";
 	      	$http.post('/api/auth', $scope.admin).then(function(res) {
 	        	if (res.data.token) {
 	        		Auth.saveToken(res.data.token, res.data.admin);
@@ -40,7 +39,6 @@ angular.module('AuthCtrls', ['MKServices'])
     		};
 
 	    $scope.userAction = function() {
-	    	$window.localStorage['cart-items'] = "";
 	        $http.post('/api/admin', $scope.admin).then(function (res) {
 	      		$location.path('/');
 	    	}, function (res) {
