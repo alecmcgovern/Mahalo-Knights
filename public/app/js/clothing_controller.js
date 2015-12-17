@@ -40,7 +40,9 @@ angular.module('ClothingCtrls', ['MKServices'])
 						}
 					}).then(function(res){
 						if(res.status === 200){
-							if(window.localStorage['cart-items']===""){
+							if(!window.localStorage['cart-items'] || 
+								window.localStorage['cart-items']==="" ||
+								window.localStorage['cart-items']==="[]"){
 								$scope.temp = [];
 								$scope.temp.push($scope.item);
 							}else{
