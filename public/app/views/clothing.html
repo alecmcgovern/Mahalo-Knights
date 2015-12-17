@@ -1,12 +1,10 @@
+<div id="clothing-background">
 <div class="container">
 	<div class="faux-nav"></div>
 	<div class="faux-nav"></div>
 	<h1 class="text-center">All the Clothes</h1>
 	<div class="row">
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			
-		</div>
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
 			<form id="searchform">
 				<div class="form-group">
 					<input class="form-control" type="text" ng-model="search" placeholder="filter search">
@@ -20,9 +18,6 @@
 				<option value="sweaters">Sweaters and Warmth</option>
 				<option value="dress">Dress Options</option>
 			</select> -->
-		</div>
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			
 		</div>
 		<form action="" method="POST">
 	  <script
@@ -47,7 +42,7 @@
 		"item in items | filter:search  track by $index">
 			<div class="item effect-flip col-md-12 col-lg-12">
 				<div class="front">
-					<img ng-show="{{item.quantity > 0}}" class="clothing-image img-responsive" ng-src="{{item.imageUrl}}">
+					<img ng-show="{{item.quantity > 0}}" class="clothing-image img img-responsive" ng-src="{{item.imageUrl}}">
 					<div class="out-of-stock" ng-hide="{{item.quantity > 0}}"></div>
 					
 				</div>
@@ -92,4 +87,5 @@
 	</div> -->
 	<hr>
 
+</div>
 </div>

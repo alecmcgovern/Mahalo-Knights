@@ -16,10 +16,14 @@ button{
 
 /* Buttons and other general styling */
 hr{
-	padding: 20px;
+	padding: 10px;
 }
 
 /* Clothing Display */
+#clothing-background{
+	background-image: url("https://image.freepik.com/free-vector/abstract-geometric-shapes-background_23-2147489803.jpg");
+	background-size: 100%;
+}
 .clothing-image{
 	border-radius: 1%;
 }
@@ -30,17 +34,17 @@ hr{
 }
 @media(min-width: 500px){
 	.item{
-		height: 200px;
+		height: 150px;
 	}
 }
 @media(min-width: 700px){
 	.item{
-		height: 300px;
+		height: 180px;
 	}
 }
 @media(min-width: 992px){
 	.item{
-		height: 400px;
+		height: 250px;
 	}
 }
 
