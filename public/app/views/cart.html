@@ -1,20 +1,20 @@
 <div class="container">
 	<div class="faux-nav"></div>
 	<div id="cart">
-		<h2 class="center-block">Here is what's in your cart: </h2>
+		<h2 class="text-align">Here is what's in your cart: </h2>
 		<button ng-click="clearAll()" class="btn btn-danger">Clear Cart</button>
+		<button ng-click="toStore()" class="btn btn-default center-block">Continue Shopping</button>
 		<div class="well" ng-repeat="item in items track by $index">
-			<img class="image-preview" src="{{item.imageUrl}}">
+			<img class="image-preview pull-right" src="{{item.imageUrl}}">
 			<p>{{item.name}}</p>
 			<p>{{item.type}}</p>
 			<p>${{item.price}}</p>
 			<p>Description: {{item.description}}</p>
-			<p>index: {{$index}}</p>
-			<button ng-click="removeFromCart($index)" class="btn btn-danger">Remove item</button>
+			<button ng-click="removeFromCart(item._id, $index)" class="btn btn-danger">Remove item</button>
 		</div>
 	</div>
 
-	<img src="http://31.media.tumblr.com/tumblr_lpsv0nM6cw1qda2s4o1_500.gif">
+	<img class="center-block" src="http://31.media.tumblr.com/tumblr_lpsv0nM6cw1qda2s4o1_500.gif">
 
 	<div class="faux-nav"></div>
 </div>

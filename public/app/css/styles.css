@@ -19,6 +19,10 @@ hr{
 	padding: 10px;
 }
 
+button{
+	outline: none;
+}
+
 /* Clothing Display */
 #clothing-background{
 	background: white;
@@ -29,11 +33,16 @@ hr{
 	border-radius: 1%;
 }
 .item{
-	height: 100px;
+	height: 80px;
 	overflow: hidden;
 	margin: 20px;
 }
 @media(min-width: 500px){
+	.item{
+		height: 100px;
+	}
+}
+@media(min-width: 600px){
 	.item{
 		height: 150px;
 	}

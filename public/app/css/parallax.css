@@ -1,27 +1,22 @@
 #intro { 
     background: url(../images/pattern.jpg) 50% 0 fixed; 
-    /*background-repeat: no-repeat;*/
     height: 600px;  
     width: 100%; 
     position: relative; 
 }
-/*#welcome{
-    color: white;
-    margin-top: 0px;
-    padding-top: 200px;
-}*/
+
 #browse-button{
     margin: 0 auto;
     position: relative;
-    top: 160px;
+    top: 220px;
     background-color: rgba(150,150,150,0.5);
-    color: black;
-    border: 1px solid black;
+    color: white;
+    border: 1px solid white;
     outline: none;
 }
 #browse-button:hover{
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 1px solid black;
 }
 #home-info{
     padding-top: 100px;
@@ -31,7 +26,6 @@
 #home { 
     background-color: white;
     height: 400px;  
-    /*margin: 0 auto; */
     width: 100%; 
     position: relative; 
     box-shadow: 0 0 50px rgba(0,0,0,0.8);

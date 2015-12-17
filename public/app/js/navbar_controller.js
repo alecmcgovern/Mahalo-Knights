@@ -11,4 +11,13 @@ angular.module('NavCtrls', ['MKServices'])
 							
 			});
 
-	}]);
+			$scope.itemsInCart = function() {
+				if($window.localStorage["cart-items"]==="[]"){
+					return false;
+				}else{
+					$scope.numItems = JSON.parse($window.localStorage["cart-items"]).length;
+					return true;
+				}
+			}
+		}
+	]);
