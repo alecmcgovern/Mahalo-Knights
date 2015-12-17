@@ -21,7 +21,8 @@ hr{
 
 /* Clothing Display */
 #clothing-background{
-	background-image: url("https://image.freepik.com/free-vector/abstract-geometric-shapes-background_23-2147489803.jpg");
+	background: white;
+	/*background-image: url("https://image.freepik.com/free-vector/abstract-geometric-shapes-background_23-2147489803.jpg");*/
 	background-size: 100%;
 }
 .clothing-image{
@@ -45,6 +46,11 @@ hr{
 @media(min-width: 992px){
 	.item{
 		height: 250px;
+	}
+}
+@media(min-width: 1200px){
+	.item{
+		height: 300px;
 	}
 }
 

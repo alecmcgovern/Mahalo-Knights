@@ -3,6 +3,7 @@
 	height: 400px;
 	background: #2E2D2C;
 	color: white;
+	box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 
 #rock-bottom{
@@ -10,5 +11,12 @@
 }
 
 #admin-login{
+	color: white;
+}
+
+.footer-link{
+	color: white;
+}
+.footer-link:hover{
 	color: white;
 }
