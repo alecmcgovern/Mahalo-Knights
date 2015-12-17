@@ -6,7 +6,7 @@
 		<button ng-click="toStore()" class="btn btn-default center-block">Continue Shopping</button>
 		<div class="well" ng-repeat="item in items track by $index">
 			<img class="image-preview pull-right" src="{{item.imageUrl}}">
-			<p>{{item.name}}</p>
+			<h1>{{item.name}}</h1>
 			<p>{{item.type}}</p>
 			<p>${{item.price}}</p>
 			<p>Description: {{item.description}}</p>
