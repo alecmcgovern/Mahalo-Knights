@@ -66,36 +66,6 @@ angular.module('CartCtrls', [])
 				}
 			});
 
-
-
-
-			// var length = $scope.items.length
-			// for (var i=0; i<length; i++){
-			// 	console.log(i);
-			// 	var id = $scope.items[i]._id;
-			// 	Item.get({id: id}, function success(data) {
-			// 		var item = data;
-			// 		$http({
-			// 			url: "/api/clothing/"+ id,
-			// 			method: 'PUT',
-			// 			data: {
-			// 		 		quantity: item.quantity + 1
-			// 			}
-			// 		}).then(function(res){
-			// 			if(res.status === 200){
-							
-			// 			}
-			// 		}, function(res) {
-			// 			console.log("Everything went horribly awry");
-			// 			console.log(res);
-			// 		});
-			// 	}, function error(data) {
-			// 		console.log(data);
-			// 	});
-			// }
-			// $window.localStorage['cart-items'] = JSON.stringify($scope.items);
-
-
 		}
 
 		$scope.toStore = function(){

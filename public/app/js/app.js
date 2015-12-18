@@ -53,11 +53,6 @@ app.config([
 }])
 .run(['$rootScope', 'Auth', '$route', function($rootScope, Auth, $route) {
 
-	$rootScope.logout = function() {
-    	Auth.removeToken();
-	    $route.reload();
- 	};
-
 	$rootScope.adminLoggedIn = function() {
     	return Auth.adminLoggedIn.apply(Auth);
   	};

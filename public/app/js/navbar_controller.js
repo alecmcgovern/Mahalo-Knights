@@ -6,6 +6,10 @@ angular.module('NavCtrls', ['MKServices'])
   		'Auth',
   		'$window',
 		function($scope, $http, $location, Auth, $window) {
+			$scope.logout = function() {
+				Auth.removeToken();
+			};
+
 			$scope.$watch(function(){
 				$scope.email = $window.localStorage["admin.email"];
 							
