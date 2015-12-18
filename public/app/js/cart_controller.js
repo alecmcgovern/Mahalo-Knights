@@ -34,23 +34,22 @@ angular.module('CartCtrls', [])
 		}
 
 		$scope.clearAll = function() {
-			console.log($scope.items[0]._id);
-			//$scope.length = $scope.items.length
-			for (var i=0; i<$scope.items.length; i++){
-				var id = $scope.items[i]._id;
-				
-				Item.get({id: id}, function success(data) {
-					$scope.item = data;
+			async.each($scope.items, function(item, callback){
+				var i = 0;
+				console.log(item);
+				Item.get({id: item._id}, function success(data) {
+					var item = data;
 					$http({
-						url: "/api/clothing/"+ id,
+						url: "/api/clothing/"+ item._id,
 						method: 'PUT',
 						data: {
-					 		quantity: $scope.item.quantity + 1
+					 		quantity: item.quantity + 1
 						}
 					}).then(function(res){
 						if(res.status === 200){
-							// $scope.items.splice(i,1);
-							// $window.localStorage['cart-items'] = JSON.stringify($scope.items);
+							$scope.items.splice(i,1);
+							i++;
+							$window.localStorage['cart-items'] = JSON.stringify($scope.items);
 						}
 					}, function(res) {
 						console.log("Everything went horribly awry");
@@ -59,9 +58,42 @@ angular.module('CartCtrls', [])
 				}, function error(data) {
 					console.log(data);
 				});
-			}
-			$scope.items = [];
-			$window.localStorage['cart-items'] = JSON.stringify($scope.items);
+			}, function(err){
+				if(err){
+			    	console.log(err);
+				}else{
+					console.log("mission success");
+				}
+			});
+
+
+
+
+			// var length = $scope.items.length
+			// for (var i=0; i<length; i++){
+			// 	console.log(i);
+			// 	var id = $scope.items[i]._id;
+			// 	Item.get({id: id}, function success(data) {
+			// 		var item = data;
+			// 		$http({
+			// 			url: "/api/clothing/"+ id,
+			// 			method: 'PUT',
+			// 			data: {
+			// 		 		quantity: item.quantity + 1
+			// 			}
+			// 		}).then(function(res){
+			// 			if(res.status === 200){
+							
+			// 			}
+			// 		}, function(res) {
+			// 			console.log("Everything went horribly awry");
+			// 			console.log(res);
+			// 		});
+			// 	}, function error(data) {
+			// 		console.log(data);
+			// 	});
+			// }
+			// $window.localStorage['cart-items'] = JSON.stringify($scope.items);
 
 
 		}
