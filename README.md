@@ -14,9 +14,14 @@ This is the first draft of the new online store for Mahalo Knights.  It was init
 * google fonts
 
 
-This project is something I have been thinking about doing for a while as my final project General Assembly Program.  My general approach was to create a visually pleasing online clothing store, with the hope that it will become fully functional, secure, and deployed on the Mahalo Knights domain name.  I started by creating my clothing and admin models so that administrators of the site have full control over posting, editing, and deleting new clothing stock as necessary.  This was important to give the owners of Mahalo Knights as much autonomy as possible, without having to dive into the source code everytime new items were instock.  I used cloudinary for basic image uploads, and hope to add cropping and image editing through cloudinary in the future.
+This project is something I have been thinking about doing for a while as my final project General Assembly Program.  My general approach was to create a visually pleasing online clothing store, with the hope that it will become fully functional/secure and deployed online at the Mahalo Knights domain name.  I started by creating my clothing and admin models so that administrators of the site have full control over posting, editing, and deleting new clothing stock as necessary.  This was important to give the owners of Mahalo Knights as much autonomy as possible, without having to dive into the source code everytime new items were instock.  I used cloudinary for basic image uploads, and hope to add cropping and image editing through cloudinary in the future.
 
+The shopping cart is almost complete at the moment other than a few bugs to work through.
 
+#####Known issues:  
+* Restocking issue when shopping cart is cleared
+* No working payment methods available
+* General lack of completeness
 
 
 
