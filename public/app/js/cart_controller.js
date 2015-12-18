@@ -35,26 +35,26 @@ angular.module('CartCtrls', [])
 
 		$scope.clearAll = function() {
 			async.each($scope.items, function(item, callback){
-				var i = 0;
-				console.log(item);
+				var x = 0;
 				Item.get({id: item._id}, function success(data) {
 					var item = data;
-					$http({
-						url: "/api/clothing/"+ item._id,
-						method: 'PUT',
-						data: {
-					 		quantity: item.quantity + 1
-						}
-					}).then(function(res){
-						if(res.status === 200){
-							$scope.items.splice(i,1);
-							i++;
-							$window.localStorage['cart-items'] = JSON.stringify($scope.items);
-						}
-					}, function(res) {
-						console.log("Everything went horribly awry");
-						console.log(res);
-					});
+						$http({
+							url: "/api/clothing/"+ item._id,
+							method: 'PUT',
+							data: {
+						 		quantity: item.quantity + 1
+							}
+						}).then(function(res){
+							if(res.status === 200){
+								console.log($scope.items);
+								$scope.items.splice(x,1);
+								x++;
+								$window.localStorage['cart-items'] = JSON.stringify($scope.items);
+							}
+						}, function(res) {
+							console.log("Everything went horribly awry");
+							console.log(res);
+						});
 				}, function error(data) {
 					console.log(data);
 				});
@@ -65,7 +65,6 @@ angular.module('CartCtrls', [])
 					console.log("mission success");
 				}
 			});
-
 		}
 
 		$scope.toStore = function(){

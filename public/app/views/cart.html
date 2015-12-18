@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="faux-nav"></div>
 	<div id="cart">
-		<h2 class="text-align">Here is what's in your cart: </h2>
-		<button ng-click="clearAll()" class="btn btn-danger">Clear Cart</button>
 		<button ng-click="toStore()" class="btn btn-default center-block">Continue Shopping</button>
+		<h2 class="text-center">Here's what's in your cart: </h2>
+		<button ng-click="clearAll()" class="btn btn-danger center-block">Empty Cart</button>
 		<div class="well" ng-repeat="item in items track by $index">
 			<img class="image-preview pull-right" src="{{item.imageUrl}}">
 			<h1>{{item.name}}</h1>
@@ -13,7 +13,18 @@
 			<button ng-click="removeFromCart(item._id, $index)" class="btn btn-danger">Remove item</button>
 		</div>
 	</div>
-	<img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" style="margin-right:7px;">
+	<form action="/charge" method="POST">
+	  <script
+	    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+	    data-image="/img/documentation/checkout/marketplace.png"
+	    data-name="Stripe.com"
+	    data-description="2 widgets"
+	    data-amount="2000"
+	    data-locale="auto">
+	  </script>
+	</form>
+  <div class="faux-nav"></div>
 	<img class="center-block" src="http://31.media.tumblr.com/tumblr_lpsv0nM6cw1qda2s4o1_500.gif">
 
 	<div class="faux-nav"></div>

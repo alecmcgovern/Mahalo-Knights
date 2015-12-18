@@ -9,7 +9,6 @@
 
 .navbar{
 	z-index: 100;
-	/*position: fixed;*/
 	background: #1e5799;
 	background: -moz-linear-gradient(left top,  #1e5799 0%, #00ddff 100%); 
 	background: -webkit-linear-gradient(left top,  #1e5799 0%,#00ddff 100%);
@@ -20,14 +19,14 @@
 	border-right: none;
 	border-top: none;
 	border-radius: 0px;
-
 	margin: 0;
 }
-.navbar-fixed-top .nav {
-    /*padding: 15px 0;*/
-}
+
 #nav-shop, #nav-admin, #nav-cart{
 	color: black;
+}
+#nav-shop:hover, #nav-admin:hover, #nav-cart:hover{
+	color: white;
 }
 .navbar-fixed-top .navbar-brand {
     padding: 0 15px;
