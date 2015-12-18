@@ -2,7 +2,7 @@ angular.module('CartCtrls', [])
 	.controller('CartCtrl', ['$scope', '$location', '$window', '$http', 'Item', function($scope, $location, $window, $http, Item) {
 		
 		$scope.items = [];
-		if($window.localStorage['cart-items']!==""){
+		if($window.localStorage['cart-items']!=="" && $window.localStorage['cart-items']){
 			$scope.items = JSON.parse($window.localStorage['cart-items']);
 		}
 
