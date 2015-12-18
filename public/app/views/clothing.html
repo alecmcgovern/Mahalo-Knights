@@ -41,7 +41,7 @@
 						<p class="text-center">${{item.price}}</p>		
 						<p class="text-center"><strong>
 							Description:</strong> {{item.description}}</p>
-						<button ng-disabled="{{item.quantity}}==0" class="btn btn-success center-block" ng-click="addToCart(item._id)">Add to Cart 
+						<button ng-controller="CartCtrl" ng-disabled="{{item.quantity}}==0" class="btn btn-success center-block" ng-click="addToCart(item._id)">Add to Cart 
 							<i class="fa fa-opencart fa-lg"></i>
 							</button>
 					

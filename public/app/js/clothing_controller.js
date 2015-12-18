@@ -29,38 +29,6 @@ angular.module('ClothingCtrls', ['MKServices'])
 				$location.path('/clothing/'+id+'/edit');
 			}
 
-			$scope.addToCart = function(id) {
-				Item.get({id: id}, function success(data) {
-					$scope.item = data;
-					$http({
-						url: "/api/clothing/"+id,
-						method: 'PUT',
-						data: {
-					 		quantity: $scope.item.quantity -1
-						}
-					}).then(function(res){
-						if(res.status === 200){
-							if(!window.localStorage['cart-items'] || 
-								window.localStorage['cart-items']==="" ||
-								window.localStorage['cart-items']==="[]"){
-								$scope.temp = [];
-								$scope.temp.push($scope.item);
-							}else{
-								$scope.temp = JSON.parse(window.localStorage['cart-items']);
-								$scope.temp.push($scope.item);
-							}
-							window.localStorage['cart-items'] = JSON.stringify($scope.temp);
-							$location.path('/cart');	
-						}
-					}, function(res) {
-						console.log("Everything went horribly awry");
-						console.log(res);
-					});
-				}, function error(data) {
-					console.log(data);
-				});
-			}
-
 
 			//Pagination
 			// $scope.currentPage = 1;

@@ -20,3 +20,8 @@
 .footer-link:hover{
 	color: white;
 }
+
+#instagram, #facebook{
+	color: white;
+	margin: 20px;
+}
